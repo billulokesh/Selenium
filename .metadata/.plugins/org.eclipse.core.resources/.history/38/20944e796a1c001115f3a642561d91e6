@@ -1,0 +1,26 @@
+package Pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import Basetest.Base;
+import elements.Elements;
+
+public class Signup extends Base {
+	//WebDriver driver;
+	public Signup(WebDriver driver) {
+		this.driver=driver;
+	}
+   public void clickonsignup()
+   {
+	   driver.findElement(By.xpath(Elements.signupbutton)).click();
+   }
+   public void Enterdetails()
+   {
+	   driver.findElement(By.xpath(Elements. Newusername)).sendKeys("billu");
+	   driver.findElement(By.xpath(Elements.mail)).sendKeys("bil123@gmail.com");
+	   driver.findElement(By.xpath(Elements.signup)).click();
+   }
+	
+
+}

@@ -1,0 +1,8 @@
+package elements;
+
+public class Elements {
+ public String signupbutton= "//a/i[@class='fa fa-lock']";
+ public String Newusername="//input[@data-qa='signup-name']";
+ public String mail="//input[@data-qa='signup-email']";
+ public String signup="//input[@data-qa='signup-button']";
+}

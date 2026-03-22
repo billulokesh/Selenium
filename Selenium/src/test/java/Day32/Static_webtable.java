@@ -1,0 +1,74 @@
+package Day32;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Static_webtable {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver driver =new ChromeDriver();
+		driver.get("https://blazedemo.com/");
+		driver.manage().window().maximize();
+	Thread.sleep(3000);	
+		
+		WebElement sc=driver.findElement(By.xpath("//select[@name='fromPort']"));
+		Select sel=new Select(sc);
+		sel.selectByVisibleText("Boston");
+		Thread.sleep(3000);	
+		WebElement sc1=driver.findElement(By.xpath("//select[@name='toPort']"));
+		Select sel1=new Select(sc1);
+		sel1.selectByVisibleText("Rome");
+		
+		WebElement flight=driver.findElement(By.xpath("//input[@class='btn btn-primary']"));
+		flight.click();
+		
+		int rows=driver.findElements(By.xpath("//table[@class='table']//tr")).size();
+		int col=driver.findElements(By.xpath("//table[@class='table']//th")).size();
+		
+		Thread.sleep(2000);
+		
+			List<WebElement> list1=driver.findElements(By.xpath("//table[@class='table']//tr[\" + i + \"]//td[6]"));
+			
+		List<Double> prices=new ArrayList<>();
+		
+		for(WebElement e:list1)
+		{
+			 String text = e.getText().replace("$", "").trim();
+	            prices.add(Double.parseDouble(text));
+	        }
+
+	        // Find lowest price
+	        double minPrice = Collections.min(prices);
+	        System.out.println("Lowest Price: $" + minPrice);
+		
+	for(int i = 0; i < prices.size(); i++) {
+        if (prices.get(i) == minPrice) {
+            // Row index is i+1 because XPath starts at 1
+            String buttonXpath = "(//table[@class='table']//input[@type='submit'])[" + (i + 1) + "]";
+            driver.findElement(By.xpath(buttonXpath)).click();
+            break;
+        }
+    }
+	
+	driver.findElement(By.xpath("//input[@value='Purchase Flight']")).click();
+	String str=driver.findElement(By.xpath("//h1[text()='Thank you for your purchase today!']")).getText();
+	String expected="Thank you for your purchase today!";
+	
+	if (str.equals("Thank you for your purchase today!")) {
+	    System.out.println("✅ Purchase confirmed successfulloy!");
+	} else {
+	    System.out.println("❌ Purchase confirmation failed!");
+	}
+	driver.quit();
+	
+
+}}
+

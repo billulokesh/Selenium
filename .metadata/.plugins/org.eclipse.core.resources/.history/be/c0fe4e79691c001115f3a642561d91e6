@@ -1,0 +1,23 @@
+package testing;
+
+import Pages.Signup;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import Basetest.Base;
+import elements.Elements;
+public class NewUserSignup extends Signup {
+	
+
+	
+	NewUserSignup obj=new NewUserSignup();
+	@Test
+	public void test1()
+	{
+		obj.clickonsignup();
+		obj.Enterdetails();
+		
+	}
+
+}

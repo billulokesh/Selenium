@@ -1,0 +1,52 @@
+package Pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import Basetest.Base;
+import elements.Elements;
+
+public class Signup extends Base {
+	//WebDriver driver;
+	public Signup(WebDriver driver) {
+		this.driver=driver;
+	}
+   public void clickonsignup()
+   {
+	   driver.findElement(By.xpath(Elements.signupbutton)).click();
+   }
+   public void Enterdetails() throws InterruptedException
+   {
+	   driver.findElement(By.xpath(Elements. Newusername)).sendKeys("billu");
+	   Thread.sleep(2000);
+	   driver.findElement(By.xpath(Elements.mail)).sendKeys("bil123@gmail.com");
+	   Thread.sleep(2000);
+	   driver.findElement(By.xpath(Elements.signup)).click();
+	   Thread.sleep(2000);
+   }
+  public void enteraccountinfo() throws InterruptedException
+  {
+	  driver.findElement(By.xpath(Elements. mr)).click();
+	  Thread.sleep(2000);
+	  driver.findElement(By.xpath(Elements.Pswd)).sendKeys("Billu@123");
+	  Thread.sleep(2000);
+	  WebElement days=driver.findElement(By.xpath(Elements.day));
+	  Thread.sleep(2000);
+	  Select sc=new Select(days);
+	  
+	  sc.selectByVisibleText("14");
+	  Thread.sleep(2000);
+	  WebElement month=driver.findElement(By.xpath(Elements.month));
+	  Select sc1=new Select(month);
+	  sc1.selectByVisibleText("April");
+	  Thread.sleep(2000);
+	  WebElement year=driver.findElement(By.xpath(Elements.year));
+	  Select sc2=new Select(year);
+	  sc.selectByVisibleText("1999");
+	  Thread.sleep(2000);
+	  
+  }
+
+}
