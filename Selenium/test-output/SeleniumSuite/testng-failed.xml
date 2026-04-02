@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [SeleniumSuite]">
+  <test thread-count="5" name="TestingClasses(failed)">
+    <classes>
+      <class name="testing.NewUserSignup">
+        <methods>
+          <include name="setUp"/>
+          <include name="Addproduct"/>
+        </methods>
+      </class> <!-- testing.NewUserSignup -->
+    </classes>
+  </test> <!-- TestingClasses(failed) -->
+</suite> <!-- Failed suite [SeleniumSuite] -->

@@ -1,0 +1,31 @@
+package Pages;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import elements.Elements;
+
+public class AddProducts {
+	
+		private WebDriver driver;
+		public AddProducts(WebDriver driver) {
+	this.driver=driver;
+		
+		}
+		public void addproduct()
+		{
+			driver.findElement(By.xpath(Elements.product)).click();
+			List<WebElement> addToCartButtons = driver.findElements(
+			        By.xpath("//a[@class='btn btn-default add-to-cart']")
+			);
+
+			addToCartButtons.get(0).click();
+			driver.findElement(By.xpath(Elements.continueshopping)).click();
+			addToCartButtons.get(1).click();
+			driver.findElement(By.xpath(Elements.continueshopping)).click();
+			//driver.findElement(By.xpath(Elements.bluetop)).click();
+		}
+}

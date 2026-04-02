@@ -1,0 +1,31 @@
+package Pages;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import Basetest.Base;
+import elements.Elements;
+
+
+public class Incorrectdetails {
+	private WebDriver driver;
+	public Incorrectdetails(WebDriver driver) {
+this.driver=driver;
+	}
+	
+	 public void Incorrectdetails()
+	   {
+		   driver.findElement(By.xpath(Elements.loginemail)).sendKeys("l@gmail.com");
+		   driver.findElement(By.xpath(Elements.loginpassword)).sendKeys("Billu@12323");
+		   driver.findElement(By.xpath(Elements.loginbtn)).click();
+		   
+	   }
+	 
+
+}
+

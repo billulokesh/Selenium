@@ -1,0 +1,49 @@
+package Pages;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
+import Basetest.Base;
+import elements.Elements;
+
+
+public class Incorrectdetails {
+	private WebDriver driver;
+	public Incorrectdetails(WebDriver driver) {
+this.driver=driver;
+	}
+	 public void clickonsignup()
+	   {
+		   driver.findElement(By.xpath(Elements.signupbutton)).click();
+	   }
+	 public void incorrectdetails()
+	   {
+		// WebElement incorrectmessage= driver.findElement(By.xpath("//p[text()='Your email or password is incorrect!']"));
+		   driver.findElement(By.xpath(Elements.loginemail)).sendKeys("l@gmail.com");
+		   driver.findElement(By.xpath(Elements.loginpassword)).sendKeys("Billu@12323");
+		   driver.findElement(By.xpath(Elements.loginbtn)).click();
+		   WebElement incorrectmessage= driver.findElement(By.xpath("//p[text()='Your email or password is incorrect!']"));
+		   Assert.assertEquals("Your email or password is incorrect!", incorrectmessage.getText());
+		   
+	   }
+	 public void TC5_Emailalreadyexist() throws InterruptedException
+	 {
+		 driver.findElement(By.xpath(Elements.signupbutton)).click();
+		 driver.findElement(By.xpath(Elements. Newusername)).sendKeys("billu");
+		   Thread.sleep(2000);
+		   
+		   driver.findElement(By.xpath(Elements.mail)).sendKeys(Elements.email);
+		   Thread.sleep(2000);
+		   driver.findElement(By.xpath(Elements.signup)).click();
+		   Thread.sleep(2000);
+	 }
+	 
+
+}
+

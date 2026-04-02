@@ -1,0 +1,58 @@
+package testing;
+
+import Pages.Incorrectdetails;
+import Pages.Login;
+import Pages.Signup;
+import Pages.contactUs;
+
+import java.util.concurrent.TimeoutException;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import Basetest.Base;
+import elements.Elements;
+public class NewUserSignup extends Base {
+	
+
+	
+	//Signup obj=new Signup(driver);
+	@Test(priority=1)
+	public void test1() throws InterruptedException, TimeoutException
+	{
+		Signup obj=new Signup(driver);
+		obj.clickonsignup();
+		obj.Enterdetails();
+		obj.enteraccountinfo();
+		obj.clickoncontimuebutton();
+		obj.clickonlogout();
+		
+	}
+	@Test(dependsOnMethods="test1")
+	public void loginTest()
+    {
+        Login login = new Login(driver);
+       // login.logout();
+        login.login();
+    }
+	
+	@Test(priority=3)
+	public void incorrecttest() throws InterruptedException
+	{
+		Incorrectdetails inc=new Incorrectdetails(driver);
+		inc. logoutandnewuserwithsameemail();
+	
+		inc.incorrectdetails();
+		inc.TC5_Emailalreadyexist();
+		
+	}
+	@Test(priority=4)
+	public void contactus()
+	
+	{
+		contactUs c=new contactUs(driver);
+		c.contact();
+	}
+	
+
+}

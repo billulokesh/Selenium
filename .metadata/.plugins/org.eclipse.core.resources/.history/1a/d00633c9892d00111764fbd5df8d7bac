@@ -1,0 +1,21 @@
+package Pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import elements.Elements;
+
+public class Cart {
+
+	private WebDriver driver;
+	public Cart(WebDriver driver) {
+this.driver=driver;
+	
+	}
+	public void quantitycheck()
+	{
+		driver.findElement(By.xpath(Elements.Cartpage));
+		WebElement quan=driver.findElement(By.xpath("//*[@id='product-1']/td[4]"));
+	}
+}

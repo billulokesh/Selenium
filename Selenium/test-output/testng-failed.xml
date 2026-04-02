@@ -5,9 +5,11 @@
     <classes>
       <class name="testing.NewUserSignup">
         <methods>
-          <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="test1"/>
+          <include name="products"/>
+          <include name="Subscriptionlogo"/>
+          <include name="Quantitycheck"/>
+          <include name="Addproduct"/>
         </methods>
       </class> <!-- testing.NewUserSignup -->
     </classes>

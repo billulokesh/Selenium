@@ -1,6 +1,11 @@
 package elements;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class Elements {
+	public static String email = "user_" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + "@example.com";
+
  public static String signupbutton= "//a/i[@class='fa fa-lock']";
  public static String Newusername="//input[@data-qa='signup-name']";
  public static String mail="//input[@data-qa='signup-email']";
@@ -19,4 +24,46 @@ public class Elements {
  public static String zipcode="//input[@data-qa='zipcode']";
  public static String mobilenumber="//input[@data-qa='mobile_number']";
  public static String Createaccount="//button[@data-qa='create-account']";
-}
+ 
+ //after account create
+ public static String Continuebutton="//a[@data-qa='continue-button']";
+ public static String logoutbutton="//a[@href='/logout']";
+ 
+ //login user
+ public static String loginemail="//input[@data-qa='login-email']";
+ public static String loginpassword="//input[@data-qa='login-password']";
+ public static String loginbtn="//button[@data-qa='login-button']";
+ 
+ // close button after user created
+ public static String close="//div[@id='dismiss-button-element']";
+ 
+ //contact us page
+ public static String contactus="//a[@href='/contact_us']";
+ public static String name="//input[@name='name']";
+ public static String email1="//input[@name='email']";
+ public static String subject="//input[@name='subject']";
+ public static String message="//textarea[@name='message']";
+ public static String submit="//input[@name='submit']";
+ 
+ //testcases page
+ public static String testcases="//a[@href='/test_cases']";
+ 
+ //product
+ public static String product="//a[@href='/products']";
+ public static String searchproduct="//input[@id='search_product']";
+ public static String searchproductbutton="//button[@id='submit_search']";
+ public static String bluetop="//div[@class='productinfo text-center']//p[text()='Blue Top']";
+ public static String continueshopping="//button[@class='btn btn-success close-modal btn-block']";
+ 
+ //subsriciption
+ public static String subsrciption="//h2[text()='Subscription']";
+ 
+ //Home page
+ public static String homepage="//a[text()=' Home']";
+ 
+ //cart page
+ public static String Cartpage="//a[text()=' Cart']";
+ 
+ 
+ }
+

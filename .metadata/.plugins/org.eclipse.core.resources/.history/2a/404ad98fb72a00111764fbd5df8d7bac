@@ -1,0 +1,21 @@
+package testing;
+
+import org.openqa.selenium.WebDriver;
+
+import Pages.Signup;
+
+public class login extends Signup {
+	public login(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void test1() throws InterruptedException
+	{
+		login obj=new login(driver);
+		obj.clickonsignup();
+		obj.Enterdetails();
+		obj.enteraccountinfo();
+		
+	}
+}

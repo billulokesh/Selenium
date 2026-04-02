@@ -1,0 +1,24 @@
+package Pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import elements.Elements;
+
+public class contactUs {
+	private WebDriver driver;
+	public contactUs(WebDriver driver) {
+this.driver=driver;
+	}
+	
+	public void contact()
+	{
+		 driver.findElement(By.xpath(Elements.name)).sendKeys("billu");
+		 driver.findElement(By.xpath(Elements. email1)).sendKeys(Elements.email);
+		 driver.findElement(By.xpath(Elements.subject)).sendKeys("Contact us");
+		 driver.findElement(By.xpath(Elements. message)).sendKeys("billu");
+		 driver.findElement(By.xpath(Elements.submit)).click();
+		
+	}
+
+}

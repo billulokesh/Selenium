@@ -1,0 +1,38 @@
+package Pages;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import elements.Elements;
+
+public class Productpage {
+	private WebDriver driver;
+	public Productpage(WebDriver driver) {
+this.driver=driver;
+	}
+public void  products()
+{
+	driver.findElement(By.xpath(Elements.product)).click();
+	WebElement allproducttext=driver.findElement(By.xpath("//h2[@class='title text-center']"));
+	allproducttext.isDisplayed();
+	List<WebElement> listofproducts=driver.findElements(By.xpath("//div[@class='col-sm-9 padding-right']//div[@class='product-image-wrapper']"));
+	System.out.println("Total products: " + listofproducts.size());
+
+	for(WebElement product : listofproducts)
+	{
+	    String productName = product.findElement(By.xpath(".//p")).getText();
+	    System.out.println(productName);
+	}
+	//int pro=listofproducts.size();
+}
+
+public void searchproduct()
+{
+	driver.findElement(By.xpath(Elements.searchproduct)).sendKeys("summer white top");
+	driver.findElement(By.xpath(Elements.searchproductbutton)).click();
+	
+}
+}

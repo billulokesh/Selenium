@@ -1,9 +1,14 @@
 package Pages;
 
+import java.time.Duration;
+import java.util.concurrent.TimeoutException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Basetest.Base;
 import elements.Elements;
@@ -21,13 +26,15 @@ public class Signup extends Base {
    {
 	   driver.findElement(By.xpath(Elements. Newusername)).sendKeys("billu");
 	   Thread.sleep(2000);
-	   driver.findElement(By.xpath(Elements.mail)).sendKeys("bil1263@gmail.com");
+	   
+	   driver.findElement(By.xpath(Elements.mail)).sendKeys(Elements.email);
 	   Thread.sleep(2000);
 	   driver.findElement(By.xpath(Elements.signup)).click();
 	   Thread.sleep(2000);
    }
   public void enteraccountinfo() throws InterruptedException
   {
+	  WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	  driver.findElement(By.xpath(Elements. mr)).click();
 	  Thread.sleep(2000);
 	  driver.findElement(By.xpath(Elements.Pswd)).sendKeys("Billu@123");
@@ -54,8 +61,90 @@ public class Signup extends Base {
 	  driver.findElement(By.xpath(Elements.city)).sendKeys("nellore");
 	  driver.findElement(By.xpath(Elements.zipcode)).sendKeys("524002");
 	  driver.findElement(By.xpath(Elements.mobilenumber)).sendKeys("1234567890");
-	  driver.findElement(By.xpath(Elements.Createaccount)).click();
+	  WebElement continueBtn = wait.until(
+		        ExpectedConditions.elementToBeClickable(By.xpath(Elements.Createaccount))
+		);
+
+		continueBtn.click();
 	  
   }
+  public void clickoncontimuebutton() throws TimeoutException
+	{ WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		 driver.findElement(By.xpath(Elements.Continuebutton)).click();
+		 try
+		 {
+		     
+
+		     WebElement popupClose = wait.until(
+		             ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='close']"))
+		     );
+
+		     popupClose.click();
+		     System.out.println("Popup closed");
+
+		 }
+		 catch (Exception e)
+		 {
+		     System.out.println("Popup not displayed");
+		 }
+	}
+	 public void clickonlogout()
+	   {
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		 try
+		 {
+		     
+
+		     WebElement popupClose = wait.until(
+		             ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='close']"))
+		     );
+
+		     popupClose.click();
+		     System.out.println("Popup closed");
+
+		 }
+		 catch (Exception e)
+		 {
+		     System.out.println("Popup not displayed");
+		 }
+		 try
+		 {
+		     
+
+		     WebElement popupClose = wait.until(
+		             ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='close-button']"))
+		     );
+
+		     popupClose.click();
+		     System.out.println("Popup closed");
+
+		 }
+		 catch (Exception e)
+		 {
+		     System.out.println("Popup not displayed");
+		 }
+		 WebElement logoutbutton = wait.until(
+	             ExpectedConditions.elementToBeClickable(By.xpath(Elements.logoutbutton))
+	     );
+		 
+		 logoutbutton.click();
+		 try
+		 {
+		     
+
+		     WebElement popupClose = wait.until(
+		             ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='close-button']"))
+		     );
+
+		     popupClose.click();
+		     System.out.println("Popup closed");
+
+		 }
+		 catch (Exception e)
+		 {
+		     System.out.println("Popup not displayed");
+		 }
+		   //driver.findElement(By.xpath(Elements.logoutbutton)).click();
+	   }
 
 }

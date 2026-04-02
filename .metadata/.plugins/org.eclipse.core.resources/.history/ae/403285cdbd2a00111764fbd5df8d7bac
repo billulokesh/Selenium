@@ -1,0 +1,27 @@
+package testing;
+
+import Pages.Signup;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import Basetest.Base;
+import elements.Elements;
+public class NewUserSignup extends Base {
+	
+
+	
+	//Signup obj=new Signup(driver);
+	@Test
+	public void test1() throws InterruptedException
+	{
+		Signup obj=new Signup(driver);
+		obj.clickonsignup();
+		obj.Enterdetails();
+		obj.enteraccountinfo();
+		obj.clickoncontimuebutton();
+		obj.clickonlogout();
+		
+	}
+
+}

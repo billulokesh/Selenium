@@ -1,0 +1,77 @@
+package Pages;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import elements.Elements;
+
+public class AddProducts {
+	
+		private WebDriver driver;
+		public AddProducts(WebDriver driver) {
+	this.driver=driver;
+		
+		}
+		public void addproduct()
+		
+		{
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			driver.findElement(By.xpath(Elements.product)).click();
+			List<WebElement> addToCartButtons = driver.findElements(
+			        By.xpath("//a[@class='btn btn-default add-to-cart']")
+			);
+			 try
+			 {
+			     WebElement popupClose = wait.until(
+			             ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='continue-prompt-text']"))
+			     );
+
+			     popupClose.click();
+			     System.out.println("Popup closed");
+
+			 }
+			 catch (Exception e)
+			 {
+			     System.out.println("Popup not displayed");
+			 }
+
+			addToCartButtons.get(0).click();
+			
+			
+			 WebElement popupClose1 = wait.until(
+		             ExpectedConditions.elementToBeClickable(By.xpath(Elements.continueshopping))
+		     );
+
+			 
+			popupClose1.click();
+			addToCartButtons.get(1).click();
+			
+			 WebElement popupClose2 = wait.until(
+		             ExpectedConditions.elementToBeClickable(By.xpath(Elements.continueshopping))
+		     );
+
+			 try
+			 {
+			    
+
+			     WebElement popupClose = wait.until(
+			             ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='continue-prompt-text']"))
+			     );
+
+			     popupClose.click();
+			     System.out.println("Popup closed");
+
+			 }
+			 catch (Exception e)
+			 {
+			     System.out.println("Popup not displayed");
+			 }
+			popupClose2.click();
+		}
+}

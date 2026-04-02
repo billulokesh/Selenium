@@ -1,6 +1,15 @@
 package testing;
 
+import Pages.AddProducts;
+import Pages.Cart;
+import Pages.Incorrectdetails;
+import Pages.Login;
+import Pages.Productpage;
 import Pages.Signup;
+import Pages.Subscription;
+import Pages.contactUs;
+
+import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
@@ -12,14 +21,71 @@ public class NewUserSignup extends Base {
 
 	
 	//Signup obj=new Signup(driver);
-	@Test
-	public void test1() throws InterruptedException
+	@Test(priority=1)
+	public void test1() throws InterruptedException, TimeoutException
 	{
 		Signup obj=new Signup(driver);
 		obj.clickonsignup();
 		obj.Enterdetails();
 		obj.enteraccountinfo();
+		obj.clickoncontimuebutton();
+		obj.clickonlogout();
 		
 	}
+	@Test(dependsOnMethods="test1")
+	public void loginTest()
+    {
+        Login login = new Login(driver);
+       // login.logout();
+        login.login();
+    }
+	
+	@Test(priority=3)
+	public void incorrecttest() throws InterruptedException
+	{
+		Incorrectdetails inc=new Incorrectdetails(driver);
+		inc. logoutandnewuserwithsameemail();
+	
+		inc.incorrectdetails();
+		inc.TC5_Emailalreadyexist();
+		
+	}
+	@Test(priority=4)
+	public void contactus()
+	
+	{
+		contactUs c=new contactUs(driver);
+		c.contact();
+	}
+	
+	@Test(priority=5)
+	public void products() throws InterruptedException
+	
+	{
+		Productpage c=new Productpage(driver);
+		c.products();
+		c.searchproduct();
+	}
+	@Test(priority=6)
+	public void Subscriptionlogo() 
+	
+	{
+		Subscription c=new Subscription(driver);
+		c.subscribe();
+		
+	}
+	@Test(priority=7)
+	public void Addproduct() throws InterruptedException
+	{
+		AddProducts a=new AddProducts(driver);
+		a.addproduct();
+	}
+	@Test(priority=8)
+	public void Quantitycheck()
+	{
+		Cart a=new Cart(driver);
+		a.quantitycheck();
+	}
+	
 
 }

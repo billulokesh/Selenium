@@ -1,0 +1,23 @@
+package testing;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import Basetest.Base;
+import Pages.Login;
+import Pages.Signup;
+
+public class login {
+	
+
+
+	@Test
+
+	public void test1() throws InterruptedException
+	{
+		Login obj=new Login();
+		
+		obj.login();
+		
+	}
+}
